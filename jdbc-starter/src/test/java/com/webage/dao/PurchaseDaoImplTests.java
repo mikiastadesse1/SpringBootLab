@@ -24,7 +24,6 @@ public class PurchaseDaoImplTests {
     //  Removed the @Disabled annotation.  Run this test, it should pass.
 
     @Test
-    @Disabled
     public void	getAllPurchases() {
         List<Purchase> purchases = dao.getAllPurchases();
 
@@ -41,7 +40,6 @@ public class PurchaseDaoImplTests {
     //  PART 5b (Optional):
     //  Removed the @Disabled annotation.  Run this test, it should pass.
     @Test
-    @Disabled
     public void	getPurchase() {
         Purchase p = dao.getPurchase(1);
 

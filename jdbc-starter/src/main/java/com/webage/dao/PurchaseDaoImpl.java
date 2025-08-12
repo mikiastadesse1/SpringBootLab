@@ -24,12 +24,13 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	//  - Utilize the ".query" method to specify a RowMapper.
 	//	  - Use a new BeanPropertyRowMapper<Purchase>(Purchase.class) to easily map columns to Purchase properties.
 	//	- Utilize the ".list" method to return a List of Purchase objects.
-
 	@Override
 	public List<Purchase> getAllPurchases() {
 		String sql = "SELECT * FROM PURCHASE";
-		// Replace this statement with the call to jdbcClient.
-		return null;
+		return jdbcClient
+				.sql(sql)
+				.query(new BeanPropertyRowMapper<Purchase>(Purchase.class))
+				.list();
 	}
 
 	//	PART 5a (Optional):
@@ -42,11 +43,13 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	//	  - Use a new BeanPropertyRowMapper<Purchase>(Purchase.class) to easily map columns to Purchase properties.
 	//	- Utilize the ".single" method to return the Purchase object.
 
-	@Override
 	public Purchase getPurchase(int id) {
 		String sql = "SELECT * FROM PURCHASE WHERE ID = ?";
-		// Add code here
-		return null;
+		return jdbcClient
+				.sql(sql)
+				.param(id)
+				.query(new BeanPropertyRowMapper<Purchase>(Purchase.class))
+				.single();
 	}
 
 	//	PART 6a (Optional):
